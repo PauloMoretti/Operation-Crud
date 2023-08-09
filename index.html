@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>Operations CRUD</title>
+  </head>
+  <body>
+    <div class="main">
+      <section class="section_static-form">
+        <form class="static-form" data-static-form>
+          <fieldset>
+            <label for="name">*Nome:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              minlength="3"
+              maxlength="40"
+              pattern="(^(([a-zà-úA-Z\s.])+)$)"
+              required
+              data-name
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="nickname">Apelido:</label>
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              minlength="2"
+              maxlength="20"
+              pattern="(^(([a-zà-úA-Z\s.])+)$)"
+              data-nickname
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="email">*Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              minlength="13"
+              maxlength="64"
+              pattern="^(([\w_\-]){3,})([@])(([\w_\-]){3,})((([.])(\w{2,})){1,3})$"
+              required
+              data-email
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="phone">Telefone:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              minlength="10"
+              maxlength="15"
+              pattern="^((\(\d{2}\))|(\d{2}))(\s?)(\d{5})(-?)(\s?)(\d{4})$"
+              data-phone
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="password">*Senha:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              minlength="8"
+              maxlength="20"
+              pattern="([\wà-ú+.@#$%&*?\/_\!+]+)"
+              required
+              data-password
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="confirmPassword">*Confirme a senha:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              minlength="8"
+              maxlength="20"
+              pattern="([\wà-ú+.@#$%&*?\/_\!+]+)"
+              required
+              data-confirm-password
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <button type="submit" class="btns">SALVAR</button>
+          <button type="reset" class="btns" data-reset-btn>LIMPAR</button>
+          <small>Campos definidos com " * " são obrigatórios.</small>
+        </form>
+      </section>
+
+      <section class="section_dynamic-form">
+        <div class="div_table-Btn">
+          <div class="div_table" data-table>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Apelido</th>
+                  <th>email</th>
+                  <th>Telefone</th>
+                  <th>Editar</th>
+                  <th>Excluir</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+          <button type="button" class="icon_btn" data-table-btn><img src="./icons/autorenew_.svg" alt="Atualizar"></button>
+        </div>
+        
+        <form class="dynamic_form" data-dynamic-form>
+          <h3>Formulário de Edição:</h3>
+
+          <fieldset>
+            <label for="name-dynamic">*Nome:</label>
+            <input
+              type="text"
+              name="name"
+              id="name-dynamic"
+              placeholder="Novo Nome"
+              minlength="3"
+              maxlength="40"
+              pattern="(^(([a-zà-úA-Z\s.])+)$)"
+              required
+              data-edit-name
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="nickname-dynamic">Apelido:</label>
+            <input
+              type="text"
+              name="nickname"
+              id="nickname-dynamic"
+              placeholder="Novo Apelido"
+              minlength="2"
+              maxlength="20"
+              pattern="(^(([a-zà-úA-Z\s.])+)$)"
+              data-edit-nickname
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="email-dynamic">*Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email-dynamic"
+              placeholder="Novo Email"
+              minlength="13"
+              maxlength="64"
+              pattern="^(([\w_\-]){3,})([@])(([\w_\-]){3,})((([.])(\w{2,})){1,3})$"
+              required
+              data-edit-email
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="number-dynamic">Telefone:</label>
+            <input
+              type="tel"
+              name="phone"
+              id="number-dynamic"
+              placeholder="Novo Numero"
+              minlength="10"
+              maxlength="15"
+              pattern="^((\(\d{2}\))|(\d{2}))(\s?)(\d{5})(-?)(\s?)(\d{4})$"
+              data-edit-number
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="password-dynamic">*Senha:</label>
+            <input
+              type="password"
+              name="password"
+              id="password-dynamic"
+              placeholder="Nova Senha"
+              minlength="8"
+              maxlength="20"
+              pattern="([\w+.@#$%&*?\/_\!+]+)"
+              required
+              data-edit-password
+            />
+            <small class="smallError"></small>
+          </fieldset>
+
+          <fieldset>
+            <label for="confirm-password-dynamic">*Confirme a senha:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirm-password-dynamic"
+              placeholder="Confirme a nova senha"
+              minlength="8"
+              maxlength="20"
+              pattern="([\w+.@#$%&*?\/_\!+]+)"
+              required
+              data-edit-password-confirm
+            />
+            <small class="smallError"></small>
+          </fieldset>
+          <button type="submit" class="btns">SALVAR</button>
+          <button type="button" class="btns" data-cancel-btn>CANCELAR</button>
+        </form>
+      </section>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
