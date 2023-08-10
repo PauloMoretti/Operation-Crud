@@ -5,88 +5,53 @@
  * Update -> Put / Patch
  * Delete -> Delete
  */
+
+import axios from "axios";
+const instance = axios.create({
+  baseURL: "http://localhost:3000/users/",
+});
+
+const messageError = (text, error) => {
+  alert(`Não foi possível ${text}! \n${error}`)
+}
+
 const getAllUsers = async () => {
   try {
-    const connection = await fetch("http://localhost:3000/users");
-    if (!connection.ok) {
-      throw new Error(
-        `${connection.status} ${connection.statusText}\nNão foi possível exibir todos os usuários!`
-      );
-    }
-    const connectionConversion = await connection.json();
-    return connectionConversion;
+    return (await instance.get("")).data;
   } catch (e) {
-    alert(e);
+    messageError("exibir todos os usuários!", e.message);
   }
 };
 
 const createUser = async (user) => {
   try {
-    const newUser = await fetch(`http://localhost:3000/users`, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(user),
-    });
-    if (!newUser.ok) {
-      throw new Error(
-        `${newUser.status} ${newUser.statusText}\nNão foi possível criar um novo usuário!`
-      );
-    }
-    const newUserConvertion = await newUser.json();
-    return newUserConvertion;
+    return (await instance.post("", user)).data;
   } catch (e) {
-    alert(e);
+    messageError("criar um novo usuário!", e.message);
   }
 };
 
 const getUserById = async (id) => {
   try {
-    const getUserId = await fetch(`http://localhost:3000/users/${id}`);
-    if (!getUserId.ok) {
-      throw new Error(
-        `${getUserId.status} ${getUserId.statusText}\nNão foi possível acessar os dados do usuário!`
-      );
-    }
-    const getUserIdConvertion = await getUserId.json();
-    return getUserIdConvertion;
+    return (await instance.get(id.toString())).data;
   } catch (e) {
-    alert(e);
+    messageError("acessar os dados do usuário!", e.message);
   }
 };
 
 const updateUser = async (id, userAtualized) => {
   try {
-    const newUser = await fetch(`http://localhost:3000/users/${id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(userAtualized),
-    });
-
-    if (!newUser.ok) {
-      throw new Error(
-        `${newUser.status} ${newUser.statusText}\nNão foi possível atualizar os dados do usuário!`
-      );
-    }
-    const newUserConvertion = newUser.json();
-    return newUserConvertion;
+    return (await instance.put(id.toString(), userAtualized)).data;
   } catch (e) {
-    alert(e);
+    messageError("atualizar os dados do usuário!", e.message);
   }
 };
 
 const deleteUser = async (id) => {
-  const urlCompleted = `http://localhost:3000/users/${id}`;
   try {
-    const deletUser = await fetch(urlCompleted, {
-      method: "DELETE",
-    });
-    if (!deletUser.ok) {
-      throw new Error(
-        `${deletUser.status} ${deletUser.statusText}\nNão foi possível deletar o usuário!`
-      );
-    }
+    return (await instance.delete(id.toString())).data;
   } catch (e) {
-    alert(e);
+    messageError("deletar o usuário!", e.message);
   }
 };
 export { getAllUsers, createUser, getUserById, updateUser, deleteUser };

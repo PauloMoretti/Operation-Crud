@@ -1,31 +1,3 @@
 {
-  "users": [
-    {
-      "name": "beto",
-      "nickname": "betim",
-      "email": "123@123123.com",
-      "phone": "",
-      "password": "12312312",
-      "passwordConfirm": "12312312",
-      "id": 1
-    },
-    {
-      "name": "beto",
-      "nickname": "betim",
-      "email": "123123@1231.com",
-      "phone": "14997378028",
-      "password": "12312312",
-      "passwordConfirm": "12312312",
-      "id": 2
-    },
-    {
-      "name": "quentão",
-      "nickname": "da lucia",
-      "email": "1123@123123.com",
-      "phone": "",
-      "password": "12312312",
-      "passwordConfirm": "12312312",
-      "id": 3
-    }
-  ]
+  "users": []
 }
