@@ -12,8 +12,8 @@ const instance = axios.create({
 });
 
 const messageError = (text, error) => {
-  alert(`Não foi possível ${text}! \n${error}`)
-}
+  alert(`Não foi possível ${text}! \n${error}`);
+};
 
 const getAllUsers = async () => {
   try {

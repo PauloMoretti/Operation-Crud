@@ -4,18 +4,59 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
     <title>Operations CRUD</title>
   </head>
-  <body>
-    <div class="main">
-      <section class="section_static-form">
-        <form class="static-form" data-static-form>
-          <fieldset>
-            <label for="name">*Nome:</label>
+  <body class="min-h-screen min-w-screen bg-black p-4 overflow-x-hidden">
+    <div class="flex flex-col gap-4 w-full h-full justify-around">
+      <section class="flex justify-center mt-4">
+        <div class="flex flex-row gap-4 mb-4 ">
+          <div class="bg-white flex" data-table>
+            <table class="border-3 border-blue-700 grow">
+              <thead class="text-white bg-gray-700 uppercase">
+                <tr>
+                  <th class="styled-th">Nome</th>
+                  <th class="styled-th">Apelido</th>
+                  <th class="styled-th">Email</th>
+                  <th class="styled-th">Telefone</th>
+                  <th class="styled-th">Editar</th>
+                  <th class="styled-th">Excluir</th>
+                </tr>
+              </thead>
+              <tbody id="tbody" class="text-black divide-y-2"></tbody>
+            </table>
+          </div>
+
+          <div class="w-full flex justify-end">
+            <button
+              type="button"
+              class="bg-white rounded-full w-8 h-8 flex items-center justify-center"
+              data-table-btn
+            >
+              <img src="./icons/autorenew_.svg" alt="Atualizar" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="flex w-full gap-4">
+        <form
+          class="w-1/2 bg-white border-2 border-blue-700 shadow-md rounded px-6 py-10"
+          data-static-form
+        >
+          <h3 class="text-2xl font-bold mb-2 text-blue-900">
+            Cadastrar novo usuário:
+          </h3>
+
+          <fieldset class="flex flex-col border-none">
+            <label for="name" class="text-black">*Nome:</label>
             <input
               type="text"
               id="name"
@@ -25,12 +66,13 @@
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               required
               data-name
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="nickname">Apelido:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="nickname" class="text-black">Apelido:</label>
             <input
               type="text"
               id="nickname"
@@ -39,12 +81,13 @@
               maxlength="20"
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               data-nickname
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="email">*Email:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="email" class="text-black">*Email:</label>
             <input
               type="email"
               id="email"
@@ -54,12 +97,13 @@
               pattern="^(([\w_\-]){3,})([@])(([\w_\-]){3,})((([.])(\w{2,})){1,3})$"
               required
               data-email
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="phone">Telefone:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="phone" class="text-black">Telefone:</label>
             <input
               type="tel"
               id="phone"
@@ -68,12 +112,13 @@
               maxlength="15"
               pattern="^((\(\d{2}\))|(\d{2}))(\s?)(\d{5})(-?)(\s?)(\d{4})$"
               data-phone
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="password">*Senha:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="password" class="text-black">*Senha:</label>
             <input
               type="password"
               id="password"
@@ -83,12 +128,15 @@
               pattern="([\wà-ú+.@#$%&*?\/_\!+]+)"
               required
               data-password
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="confirmPassword">*Confirme a senha:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="confirmPassword" class="text-black"
+              >*Confirme a senha:</label
+            >
             <input
               type="password"
               id="confirmPassword"
@@ -98,41 +146,38 @@
               pattern="([\wà-ú+.@#$%&*?\/_\!+]+)"
               required
               data-confirm-password
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
-
-          <button type="submit" class="btns">SALVAR</button>
-          <button type="reset" class="btns" data-reset-btn>LIMPAR</button>
-          <small>Campos definidos com " * " são obrigatórios.</small>
-        </form>
-      </section>
-
-      <section class="section_dynamic-form">
-        <div class="div_table-Btn">
-          <div class="div_table" data-table>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Apelido</th>
-                  <th>email</th>
-                  <th>Telefone</th>
-                  <th>Editar</th>
-                  <th>Excluir</th>
-                </tr>
-              </thead>
-              <tbody id="tbody"></tbody>
-            </table>
+          <div class="flex flex-col">
+            <button
+              type="submit"
+              class="h-10 px-6 mt-2 font-semibold rounded-md border bg-black text-white"
+            >
+              SALVAR
+            </button>
+            <button
+              type="reset"
+              class="h-10 px-6 mt-2 font-semibold rounded-md border bg-black text-white"
+              data-reset-btn
+            >
+              LIMPAR
+            </button>
+            <small>Campos definidos com " * " são obrigatórios.</small>
           </div>
-          <button type="button" class="icon_btn" data-table-btn><img src="./icons/autorenew_.svg" alt="Atualizar"></button>
-        </div>
-        
-        <form class="dynamic_form" data-dynamic-form>
-          <h3>Formulário de Edição:</h3>
+        </form>
 
-          <fieldset>
-            <label for="name-dynamic">*Nome:</label>
+        <form
+          class=" w-1/2 hidden bg-white border-2 border-blue-700 shadow-md rounded px-6 py-10 flex-col"
+          data-dynamic-form
+        >
+          <h3 class="text-2xl font-bold mb-2 text-blue-900">
+            Formulário de Edição:
+          </h3>
+
+          <fieldset class="flex flex-col border-none">
+            <label for="name-dynamic" class="text-black">*Nome:</label>
             <input
               type="text"
               name="name"
@@ -143,12 +188,13 @@
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               required
               data-edit-name
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="nickname-dynamic">Apelido:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="nickname-dynamic" class="text-black">Apelido:</label>
             <input
               type="text"
               name="nickname"
@@ -158,12 +204,13 @@
               maxlength="20"
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               data-edit-nickname
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="email-dynamic">*Email:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="email-dynamic" class="text-black">*Email:</label>
             <input
               type="email"
               name="email"
@@ -174,12 +221,13 @@
               pattern="^(([\w_\-]){3,})([@])(([\w_\-]){3,})((([.])(\w{2,})){1,3})$"
               required
               data-edit-email
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="number-dynamic">Telefone:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="number-dynamic" class="text-black">Telefone:</label>
             <input
               type="tel"
               name="phone"
@@ -189,12 +237,13 @@
               maxlength="15"
               pattern="^((\(\d{2}\))|(\d{2}))(\s?)(\d{5})(-?)(\s?)(\d{4})$"
               data-edit-number
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="password-dynamic">*Senha:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="password-dynamic" class="text-black">*Senha:</label>
             <input
               type="password"
               name="password"
@@ -205,12 +254,15 @@
               pattern="([\w+.@#$%&*?\/_\!+]+)"
               required
               data-edit-password
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
 
-          <fieldset>
-            <label for="confirm-password-dynamic">*Confirme a senha:</label>
+          <fieldset class="flex flex-col border-none">
+            <label for="confirm-password-dynamic" class="text-black"
+              >*Confirme a senha:</label
+            >
             <input
               type="password"
               name="confirmPassword"
@@ -221,11 +273,25 @@
               pattern="([\w+.@#$%&*?\/_\!+]+)"
               required
               data-edit-password-confirm
+              class="border-2 border-blue-700 bg-white text-black rounded"
             />
-            <small class="smallError"></small>
+            <small data-small class="text-[#F21B2D] font-bold"></small>
           </fieldset>
-          <button type="submit" class="btns">SALVAR</button>
-          <button type="button" class="btns" data-cancel-btn>CANCELAR</button>
+          <div class="flex flex-col">
+            <button
+              type="submit"
+              class="h-10 px-6 mt-2 font-semibold rounded-md border bg-black text-white"
+            >
+              SALVAR
+            </button>
+            <button
+              type="button"
+              class="h-10 px-6 mt-2 font-semibold rounded-md border bg-black text-white"
+              data-cancel-btn
+            >
+              CANCELAR
+            </button>
+          </div>
         </form>
       </section>
     </div>

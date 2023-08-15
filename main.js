@@ -32,6 +32,7 @@ const hideOrShow = (id) => {
 const createRowCell = (text) => {
   const td = document.createElement("td");
   td.textContent = text;
+  td.className = "py-3 px-6";
   return td;
 };
 
@@ -41,13 +42,14 @@ const createRowButton = (text, fn) => {
   const btn = document.createElement("button");
   btn.textContent = text;
   btn.onclick = fn;
+  btn.className =
+    "h-10 px-6 font-semibold rounded-md border bg-black text-white";
   td.append(btn);
   return td;
 };
 
 //Atualizar e exibir a tabela de usuários
 const updateTable = async () => {
-  divTable.style.display = "block";
   const allUsers = await getAllUsers();
   const tBody = document.querySelector("#tbody");
   tBody.innerHTML = "";
@@ -278,7 +280,7 @@ const errorMsgs = {
 
 //Validação de campos
 const validateField = (field) => {
-  const smallMsgError = field.parentNode.querySelector(".smallError");
+  const smallMsgError = field.parentNode.querySelector("[data-small]");
   const name = field.name;
   const errorMsg = errorMsgs[name];
 

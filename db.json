@@ -1,3 +1,31 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "Paulo",
+      "nickname": "Moretti",
+      "email": "paulo_moretti@hotmail.com",
+      "phone": "14982227295",
+      "password": "123123123",
+      "passwordConfirm": "123123123",
+      "id": 1
+    },
+    {
+      "name": "Beto",
+      "nickname": "Apelido",
+      "email": "beto@hotmail.com",
+      "phone": "14982227543",
+      "password": "renata123",
+      "passwordConfirm": "renata123",
+      "id": 2
+    },
+    {
+      "name": "Fabo",
+      "nickname": "Coach",
+      "email": "Fabo@gmail.com",
+      "phone": "12934063465",
+      "password": "123123123",
+      "passwordConfirm": "123123123",
+      "id": 3
+    }
+  ]
 }
