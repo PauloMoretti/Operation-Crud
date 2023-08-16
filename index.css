@@ -1,16 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.styled-th {
-  @apply py-3
-  @apply px-6;
-}
-
-.styled-inputs {
-  @apply border-2
-  @apply border-blue-700
-  @apply bg-white
-  @apply text-black
-  @apply rounded
-}

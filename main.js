@@ -32,7 +32,7 @@ const hideOrShow = (id) => {
 const createRowCell = (text) => {
   const td = document.createElement("td");
   td.textContent = text;
-  td.className = "py-3 px-6";
+  td.className = "py-3 px-6 font-medium hover:text-gray-500";
   return td;
 };
 
@@ -43,7 +43,7 @@ const createRowButton = (text, fn) => {
   btn.textContent = text;
   btn.onclick = fn;
   btn.className =
-    "h-10 px-6 font-semibold rounded-md border bg-black text-white";
+    "h-10 px-6 font-semibold rounded-md border-2 bg-gray-700 text-gray-50 hover:bg-gray-900 hover:border-black ease-in duration-300";
   td.append(btn);
   return td;
 };
