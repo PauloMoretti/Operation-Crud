@@ -16,6 +16,12 @@
   </head>
   <body class="h-full min-w-screen overflow-x-hidden relative">
     <div
+      class="flex justify-center items-center font-bold text-neutral-100 text-3xl"
+    >
+      Olá!<span class="animate-[wave_2s_ease-in-out_infinite]">👋🏻</span>Bem-vindo ao
+      sistema de cadastramento de usuários
+    </div>
+    <div
       class="h-full w-full bg-[url('/wpp/pexels.jpg')] bg-no-repeat bg-fixed bg-cover bg-center absolute -z-10 bottom-0 right-0 blur-[2px]"
     ></div>
     <div class="flex flex-col gap-4 w-full h-full justify-around p-4">
@@ -43,7 +49,7 @@
           <div class="w-full flex justify-end">
             <button
               type="button"
-              class="rounded-full w-8 h-8 flex items-center justify-center bg-gray-50 hover:bg-zinc-600"
+              class="rounded-full w-8 h-8 flex items-center justify-center bg-gray-50 hover:bg-zinc-600 hover:animate-spin"
               data-table-btn
             >
               <img src="./icons/autorenew_.svg" alt="Atualizar" />
@@ -74,7 +80,7 @@
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               required
               data-name
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -91,7 +97,7 @@
               maxlength="20"
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               data-nickname
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -109,7 +115,7 @@
               pattern="^(([\w_\-]){3,})([@])(([\w_\-]){3,})((([.])(\w{2,})){1,3})$"
               required
               data-email
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -126,7 +132,7 @@
               maxlength="15"
               pattern="^((\(\d{2}\))|(\d{2}))(\s?)(\d{5})(-?)(\s?)(\d{4})$"
               data-phone
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -144,7 +150,7 @@
               pattern="([\wà-ú+.@#$%&*?\/_\!+]+)"
               required
               data-password
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -162,7 +168,7 @@
               pattern="([\wà-ú+.@#$%&*?\/_\!+]+)"
               required
               data-confirm-password
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -209,7 +215,7 @@
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               required
               data-edit-name
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -227,7 +233,7 @@
               maxlength="20"
               pattern="(^(([a-zà-úA-Z\s.])+)$)"
               data-edit-nickname
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -246,7 +252,7 @@
               pattern="^(([\w_\-]){3,})([@])(([\w_\-]){3,})((([.])(\w{2,})){1,3})$"
               required
               data-edit-email
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -264,7 +270,7 @@
               maxlength="15"
               pattern="^((\(\d{2}\))|(\d{2}))(\s?)(\d{5})(-?)(\s?)(\d{4})$"
               data-edit-number
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -283,7 +289,7 @@
               pattern="([\w+.@#$%&*?\/_\!+]+)"
               required
               data-edit-password
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
@@ -304,7 +310,7 @@
               pattern="([\w+.@#$%&*?\/_\!+]+)"
               required
               data-edit-password-confirm
-              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-300"
+              class="border-2 border-stone-500 bg-gray-50 text-gray-800 rounded indent-2 focus:bg-gray-400 focus:animate-pulse"
             />
             <small data-small class="text-red-500 font-bold"></small>
           </fieldset>
